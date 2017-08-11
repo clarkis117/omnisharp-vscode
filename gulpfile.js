@@ -97,7 +97,7 @@ function doPackageSync(packageName) {
 
 function doOfflinePackage(platformInfo, packageName, packageJSON) {
     if (process.platform === 'win32') {
-        throw new Error('Do not build offline packages on windows. Runtime executables will not be marked executable in *nix packages.');
+        //throw new Error('Do not build offline packages on windows. Runtime executables will not be marked executable in *nix packages.');
     }
 
     cleanSync(false);
@@ -129,14 +129,14 @@ gulp.task('package:offline', ['clean'], () => {
 
     var packages = [];
     packages.push(new PlatformInformation('win32', 'x86_64'));
-    packages.push(new PlatformInformation('darwin', 'x86_64'));
-    packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('centos', '7')));
-    packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('debian', '8')));
-    packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('fedora', '23')));
-    packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('opensuse', '13.2')));
-    packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('rhel', '7.2')));
-    packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('ubuntu', '14.04')));
-    packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('ubuntu', '16.04')));
+    //packages.push(new PlatformInformation('darwin', 'x86_64'));
+    //packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('centos', '7')));
+    //packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('debian', '8')));
+    //packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('fedora', '23')));
+    //packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('opensuse', '13.2')));
+    //packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('rhel', '7.2')));
+    //packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('ubuntu', '14.04')));
+    //packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('ubuntu', '16.04')));
 
     var promise = Promise.resolve();
 
