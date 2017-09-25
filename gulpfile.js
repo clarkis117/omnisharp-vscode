@@ -20,6 +20,7 @@ const platform = require('./out/src/platform');
 const util = require('./out/src/common');
 const child_process = require('child_process');
 const optionsSchemaGenerator = require('./out/src/tools/GenerateOptionsSchema');
+const packageDependencyUpdater = require('./out/src/tools/UpdatePackageDependencies');
 
 const Logger = logger.Logger;
 const PackageManager = packages.PackageManager;
@@ -42,6 +43,10 @@ gulp.task('clean', () => {
 
 gulp.task('generateOptionsSchema', () => {
     optionsSchemaGenerator.GenerateOptionsSchema();
+});
+
+gulp.task('updatePackageDependencies', () => {
+    packageDependencyUpdater.updatePackageDependencies();
 });
 
 // Install Tasks
@@ -92,7 +97,7 @@ function doPackageSync(packageName) {
 
 function doOfflinePackage(platformInfo, packageName, packageJSON) {
     if (process.platform === 'win32') {
-        throw new Error('Do not build offline packages on windows. Runtime executables will not be marked executable in *nix packages.');
+        //throw new Error('Do not build offline packages on windows. Runtime executables will not be marked executable in *nix packages.');
     }
 
     cleanSync(false);
@@ -124,14 +129,14 @@ gulp.task('package:offline', ['clean'], () => {
 
     var packages = [];
     packages.push(new PlatformInformation('win32', 'x86_64'));
-    packages.push(new PlatformInformation('darwin', 'x86_64'));
-    packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('centos', '7')));
-    packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('debian', '8')));
-    packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('fedora', '23')));
-    packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('opensuse', '13.2')));
-    packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('rhel', '7.2')));
-    packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('ubuntu', '14.04')));
-    packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('ubuntu', '16.04')));
+    //packages.push(new PlatformInformation('darwin', 'x86_64'));
+    //packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('centos', '7')));
+    //packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('debian', '8')));
+    //packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('fedora', '23')));
+    //packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('opensuse', '13.2')));
+    //packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('rhel', '7.2')));
+    //packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('ubuntu', '14.04')));
+    //packages.push(new PlatformInformation('linux', 'x86_64', new LinuxDistribution('ubuntu', '16.04')));
 
     var promise = Promise.resolve();
 

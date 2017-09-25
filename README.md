@@ -18,20 +18,23 @@ The C# extension is powered by [OmniSharp](https://github.com/OmniSharp/omnishar
 * [Documentation](https://code.visualstudio.com/docs/languages/csharp)
 * [Video Tutorial compiling with .NET Core](https://channel9.msdn.com/Blogs/dotnet/Get-started-with-VS-Code-using-CSharp-and-NET-Core)
 
-### What's New in 1.11.0
+### What's New in 1.12.0
 
+* Support for C# 7.1.
 * Support for latest .NET Core 2.0 preview.
-* Completion list fixes when typing lambda expressions.
-* Other bug fixes
+* Improvements to our support for Xamarin projects.
+* Several improvements to code actions, plus several new code fixes and refactorings.
+* The completion list now suggests variable names as you type.
+* Many other bug fixes
 
-See our [change log](https://github.com/OmniSharp/omnisharp-vscode/blob/v1.10.0/CHANGELOG.md) for all of the updates.
+See our [change log](https://github.com/OmniSharp/omnisharp-vscode/blob/v1.12.0/CHANGELOG.md) for all of the updates.
 
 ### Supported Operating Systems for Debugging
 
 * Currently, the C# debugger officially supports the following operating systems:
 
   * Windows (64-bit only)
-  * macOS
+  * macOS 10.12 (Sierra) and newer
   * Ubuntu 14.04+ (and distros based on it)
   * Debian 8.7+
   * Red Hat Enterprise Linux (RHEL) / CentOS / Oracle Linux 7.3+

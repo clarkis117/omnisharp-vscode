@@ -1,7 +1,7 @@
 {
   "name": "csharp",
   "publisher": "ms-vscode",
-  "version": "1.12.0-beta2",
+  "version": "1.12.0",
   "description": "C# for Visual Studio Code (powered by OmniSharp).",
   "displayName": "C#",
   "author": "Microsoft Corporation",
@@ -41,7 +41,7 @@
     "semver": "*",
     "tmp": "0.0.28",
     "vscode-debugprotocol": "^1.6.1",
-    "vscode-extension-telemetry": "0.0.4",
+    "vscode-extension-telemetry": "0.0.8",
     "yauzl": "^2.5.0"
   },
   "devDependencies": {
@@ -67,27 +67,68 @@
   },
   "runtimeDependencies": [
     {
-      "description": "Mono Runtime (Linux / x86)",
-      "url": "https://omnisharpdownload.azureedge.net/ext/mono.linux-x86-5.2.0-omnisharp1.zip",
-      "fallbackUrl": "https://omnisharpdownload.blob.core.windows.net/ext/mono.linux-x86-5.2.0-omnisharp1.zip",
-      "installPath": "./bin",
+      "description": "OmniSharp for Windows (.NET 4.6 / x86)",
+      "url": "https://download.visualstudio.microsoft.com/download/pr/11071105/cbf554a87cbe90e7f290ce79398776bf/omnisharp-win-x86-1.23.1.zip",
+      "fallbackUrl": "https://omnisharpdownload.blob.core.windows.net/ext/omnisharp-win-x86-1.23.1.zip",
+      "installPath": ".omnisharp",
+      "platforms": [
+        "win32"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "installTestPath": "./.omnisharp/OmniSharp.exe"
+    },
+    {
+      "description": "OmniSharp for Windows (.NET 4.6 / x64)",
+      "url": "https://download.visualstudio.microsoft.com/download/pr/11071104/51b457cd47f5348658ce356d3e90c75c/omnisharp-win-x64-1.23.1.zip",
+      "fallbackUrl": "https://omnisharpdownload.blob.core.windows.net/ext/omnisharp-win-x64-1.23.1.zip",
+      "installPath": ".omnisharp",
+      "platforms": [
+        "win32"
+      ],
+      "architectures": [
+        "x86_64"
+      ],
+      "installTestPath": "./.omnisharp/OmniSharp.exe"
+    },
+    {
+      "description": "OmniSharp for OSX",
+      "url": "https://download.visualstudio.microsoft.com/download/pr/11071103/4df6a2993b53c7ff89ce8e7f93ef5d15/omnisharp-osx-1.23.1.zip",
+      "fallbackUrl": "https://omnisharpdownload.blob.core.windows.net/ext/omnisharp-osx-1.23.1.zip",
+      "installPath": ".omnisharp",
+      "platforms": [
+        "darwin"
+      ],
+      "binaries": [
+        "./mono.osx",
+        "./run"
+      ],
+      "installTestPath": "./.omnisharp/mono.osx"
+    },
+    {
+      "description": "OmniSharp for Linux (x86)",
+      "url": "https://download.visualstudio.microsoft.com/download/pr/11071102/76070e75070ac32ed0f8cac1e753b21e/omnisharp-linux-x86-1.23.1.zip",
+      "fallbackUrl": "https://omnisharpdownload.blob.core.windows.net/ext/omnisharp-linux-x86-1.23.1.zip",
+      "installPath": ".omnisharp",
       "platforms": [
         "linux"
       ],
       "architectures": [
-        "x86"
+        "x86",
+        "i686"
       ],
       "binaries": [
         "./mono.linux-x86",
         "./run"
       ],
-      "installTestPath": "./bin/mono.linux-x86"
+      "installTestPath": "./.omnisharp/mono.linux-x86"
     },
     {
-      "description": "Mono Runtime (Linux / x64)",
-      "url": "https://omnisharpdownload.azureedge.net/ext/mono.linux-x86_64-5.2.0-omnisharp1.zip",
-      "fallbackUrl": "https://omnisharpdownload.blob.core.windows.net/ext/mono.linux-x86_64-5.2.0-omnisharp1.zip",
-      "installPath": "./bin",
+      "description": "OmniSharp for Linux (x64)",
+      "url": "https://download.visualstudio.microsoft.com/download/pr/11071101/d1308f9fa4e3dcf36eea1a1f731decd7/omnisharp-linux-x64-1.23.1.zip",
+      "fallbackUrl": "https://omnisharpdownload.blob.core.windows.net/ext/omnisharp-linux-x64-1.23.1.zip",
+      "installPath": ".omnisharp",
       "platforms": [
         "linux"
       ],
@@ -98,74 +139,12 @@
         "./mono.linux-x86_64",
         "./run"
       ],
-      "installTestPath": "./bin/mono.linux-x86_64"
-    },
-    {
-      "description": "Mono Runtime (macOS)",
-      "url": "https://omnisharpdownload.azureedge.net/ext/mono.osx-5.2.0-omnisharp1.zip",
-      "fallbackUrl": "https://omnisharpdownload.blob.core.windows.net/ext/mono.osx-5.2.0-omnisharp1.zip",
-      "installPath": "./bin",
-      "platforms": [
-        "darwin"
-      ],
-      "binaries": [
-        "./mono.osx",
-        "./run"
-      ],
-      "installTestPath": "./bin/mono.osx"
-    },
-    {
-      "description": "Mono Framework Assemblies",
-      "url": "https://omnisharpdownload.azureedge.net/ext/framework-5.2.0-omnisharp1.zip",
-      "fallbackUrl": "https://omnisharpdownload.blob.core.windows.net/ext/framework-5.2.0-omnisharp1.zip",
-      "installPath": "./bin/framework",
-      "platforms": [
-        "darwin",
-        "linux"
-      ],
-      "installTestPath": "./bin/framework/mscorlib.dll"
-    },
-    {
-      "description": "OmniSharp (.NET 4.6 / x86)",
-      "url": "https://omnisharpdownload.azureedge.net/ext/omnisharp-win-x86-1.22.0.zip",
-      "fallbackUrl": "https://omnisharpdownload.blob.core.windows.net/ext/omnisharp-win-x86-1.22.0.zip",
-      "installPath": "./bin/omnisharp",
-      "platforms": [
-        "win32"
-      ],
-      "architectures": [
-        "x86"
-      ],
-      "installTestPath": "./bin/omnisharp/OmniSharp.exe"
-    },
-    {
-      "description": "OmniSharp (.NET 4.6 / x64)",
-      "url": "https://omnisharpdownload.azureedge.net/ext/omnisharp-win-x64-1.22.0.zip",
-      "fallbackUrl": "https://omnisharpdownload.blob.core.windows.net/ext/omnisharp-win-x64-1.22.0.zip",
-      "installPath": "./bin/omnisharp",
-      "platforms": [
-        "win32"
-      ],
-      "architectures": [
-        "x86_64"
-      ],
-      "installTestPath": "./bin/omnisharp/OmniSharp.exe"
-    },
-    {
-      "description": "OmniSharp (Mono 4.6)",
-      "url": "https://omnisharpdownload.azureedge.net/ext/omnisharp-mono-1.22.0.zip",
-      "fallbackUrl": "https://omnisharpdownload.blob.core.windows.net/ext/omnisharp-mono-1.22.0.zip",
-      "installPath": "./bin/omnisharp",
-      "platforms": [
-        "darwin",
-        "linux"
-      ],
-      "installTestPath": "./bin/omnisharp/OmniSharp.exe"
+      "installTestPath": "./.omnisharp/mono.linux-x86_64"
     },
     {
       "description": ".NET Core Debugger (Windows / x64)",
-      "url": "https://vsdebugger.azureedge.net/coreclr-debug-1-12-2/coreclr-debug-win7-x64.zip",
-      "fallbackUrl": "https://vsdebugger.blob.core.windows.net/coreclr-debug-1-12-2/coreclr-debug-win7-x64.zip",
+      "url": "https://download.visualstudio.microsoft.com/download/pr/10975649/e7e53245607ac00f315a629e2ed934b9/coreclr-debug-win7-x64.zip",
+      "fallbackUrl": "https://vsdebugger.blob.core.windows.net/coreclr-debug-1-12-5/coreclr-debug-win7-x64.zip",
       "installPath": ".debugger",
       "platforms": [
         "win32"
@@ -177,8 +156,8 @@
     },
     {
       "description": ".NET Core Debugger (macOS / x64)",
-      "url": "https://vsdebugger.azureedge.net/coreclr-debug-1-12-2/coreclr-debug-osx.10.11-x64.zip",
-      "fallbackUrl": "https://vsdebugger.blob.core.windows.net/coreclr-debug-1-12-2/coreclr-debug-osx.10.11-x64.zip",
+      "url": "https://download.visualstudio.microsoft.com/download/pr/10975649/e7e53245607ac00f315a629e2ed934b9/coreclr-debug-osx.10.11-x64.zip",
+      "fallbackUrl": "https://vsdebugger.blob.core.windows.net/coreclr-debug-1-12-5/coreclr-debug-osx.10.11-x64.zip",
       "installPath": ".debugger",
       "platforms": [
         "darwin"
@@ -194,8 +173,8 @@
     },
     {
       "description": ".NET Core Debugger (linux / x64)",
-      "url": "https://vsdebugger.azureedge.net/coreclr-debug-1-12-2/coreclr-debug-linux-x64.zip",
-      "fallbackUrl": "https://vsdebugger.blob.core.windows.net/coreclr-debug-1-12-2/coreclr-debug-linux-x64.zip",
+      "url": "https://download.visualstudio.microsoft.com/download/pr/10975649/e7e53245607ac00f315a629e2ed934b9/coreclr-debug-linux-x64.zip",
+      "fallbackUrl": "https://vsdebugger.blob.core.windows.net/coreclr-debug-1-12-5/coreclr-debug-linux-x64.zip",
       "installPath": ".debugger",
       "platforms": [
         "linux"
@@ -252,7 +231,7 @@
                 "type": "string"
               },
               "default": {
-                "<source-path>": "<target-path>"
+                "<insert-source-path-here>": "<insert-target-path-here>"
               }
             },
             "justMyCode": {
@@ -315,6 +294,15 @@
                   "default": true
                 }
               }
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "coreclr",
+                "clr"
+              ],
+              "description": "Type type of code to debug. Can be either 'coreclr' for .NET Core debugging, or 'clr' for Desktop .NET Framework. 'clr' only works on Windows as the Desktop framework is Windows-only.",
+              "default": "coreclr"
             }
           }
         },
@@ -451,13 +439,11 @@
             "razor"
           ]
         },
-        "runtime": "node",
         "runtimeArgs": [],
         "variables": {
           "pickProcess": "csharp.listProcess",
           "pickRemoteProcess": "csharp.listRemoteProcess"
         },
-        "program": "./out/src/coreclr-debug/proxy.js",
         "aiKey": "AIF-d9b70cd4-b9f9-4d70-929b-a071c400b217",
         "configurationAttributes": {
           "launch": {
@@ -468,8 +454,8 @@
             "properties": {
               "program": {
                 "type": "string",
-                "description": "Path to the application dll or .NET Core host executable to launch. Example: '${workspaceRoot}/bin/Debug/<target-framework>/<project-name.dll>' where:\n<target-framework>: (example: 'netstandard1.5') This is the name of the framework that the app is being built for. It is set in the project.json file.\n<project-name>: (example: 'MyApp') The name of the project being debugged.",
-                "default": "${workspaceRoot}/bin/Debug/<target-framework>/<project-name.dll>"
+                "description": "Path to the application dll or .NET Core host executable to launch.\nThis property normally takes the form: '${workspaceRoot}/bin/Debug/(target-framework)/(project-name.dll)'\nExample: '${workspaceRoot}/bin/Debug/netcoreapp1.1/MyProject.dll'\n\nWhere:\n(target-framework) is the framework that the debugged project is being built for. This is normally found in the project file as the 'TargetFramework' property.\n(project-name.dll) is the name of debugged project's build output dll. This is normally the same as the project file name but with a '.dll' extension.",
+                "default": "${workspaceRoot}/bin/Debug/<insert-target-framework-here>/<insert-project-name-here>.dll"
               },
               "cwd": {
                 "type": "string",
@@ -634,7 +620,7 @@
                   "type": "string"
                 },
                 "default": {
-                  "<source-path>": "<target-path>"
+                  "<insert-source-path-here>": "<insert-target-path-here>"
                 }
               },
               "justMyCode": {
@@ -942,7 +928,7 @@
                   "type": "string"
                 },
                 "default": {
-                  "<source-path>": "<target-path>"
+                  "<insert-source-path-here>": "<insert-target-path-here>"
                 }
               },
               "justMyCode": {
@@ -1325,7 +1311,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}/bin/Debug/<target-framework>/<project-name.dll>",
+            "program": "${workspaceRoot}/bin/Debug/<insert-target-framework-here>/<insert-project-name-here>.dll",
             "args": [],
             "cwd": "${workspaceRoot}",
             "stopAtEntry": false,
@@ -1336,7 +1322,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}/bin/Debug/<target-framework>/<project-name.dll>",
+            "program": "${workspaceRoot}/bin/Debug/<insert-target-framework-here>/<insert-project-name-here>.dll",
             "args": [],
             "cwd": "${workspaceRoot}",
             "stopAtEntry": false,
@@ -1367,7 +1353,16 @@
             "request": "attach",
             "processId": "${command:pickProcess}"
           }
-        ]
+        ],
+        "windows": {
+          "program": "./.debugger/vsdbg-ui.exe"
+        },
+        "osx": {
+          "program": "./.debugger/vsdbg-ui"
+        },
+        "linux": {
+          "program": "./.debugger/vsdbg-ui"
+        }
       },
       {
         "type": "clr",
@@ -1378,13 +1373,11 @@
             "razor"
           ]
         },
-        "runtime": "node",
         "runtimeArgs": [],
         "variables": {
           "pickProcess": "csharp.listProcess",
           "pickRemoteProcess": "csharp.listRemoteProcess"
         },
-        "program": "./out/src/coreclr-debug/proxy.js",
         "aiKey": "AIF-d9b70cd4-b9f9-4d70-929b-a071c400b217",
         "configurationAttributes": {
           "launch": {
@@ -1395,8 +1388,8 @@
             "properties": {
               "program": {
                 "type": "string",
-                "description": "Path to the application dll or .NET Core host executable to launch. Example: '${workspaceRoot}/bin/Debug/<target-framework>/<project-name.dll>' where:\n<target-framework>: (example: 'netstandard1.5') This is the name of the framework that the app is being built for. It is set in the project.json file.\n<project-name>: (example: 'MyApp') The name of the project being debugged.",
-                "default": "${workspaceRoot}/bin/Debug/<target-framework>/<project-name.dll>"
+                "description": "Path to the application dll or .NET Core host executable to launch.\nThis property normally takes the form: '${workspaceRoot}/bin/Debug/(target-framework)/(project-name.dll)'\nExample: '${workspaceRoot}/bin/Debug/netcoreapp1.1/MyProject.dll'\n\nWhere:\n(target-framework) is the framework that the debugged project is being built for. This is normally found in the project file as the 'TargetFramework' property.\n(project-name.dll) is the name of debugged project's build output dll. This is normally the same as the project file name but with a '.dll' extension.",
+                "default": "${workspaceRoot}/bin/Debug/<insert-target-framework-here>/<insert-project-name-here>.dll"
               },
               "cwd": {
                 "type": "string",
@@ -1561,7 +1554,7 @@
                   "type": "string"
                 },
                 "default": {
-                  "<source-path>": "<target-path>"
+                  "<insert-source-path-here>": "<insert-target-path-here>"
                 }
               },
               "justMyCode": {
@@ -1869,7 +1862,7 @@
                   "type": "string"
                 },
                 "default": {
-                  "<source-path>": "<target-path>"
+                  "<insert-source-path-here>": "<insert-target-path-here>"
                 }
               },
               "justMyCode": {
@@ -2147,6 +2140,15 @@
               }
             }
           }
+        },
+        "windows": {
+          "program": "./.debugger/vsdbg-ui.exe"
+        },
+        "osx": {
+          "program": "./.debugger/vsdbg-ui"
+        },
+        "linux": {
+          "program": "./.debugger/vsdbg-ui"
         }
       }
     ]
